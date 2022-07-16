@@ -1,6 +1,7 @@
 <?php
   include("./cn_bd.php");
-  $alumnos = "SELECT * FROM alumnos"
+  $id = $_GET["id"];
+  $alumnos = "SELECT * FROM alumnos WHERE id = '$id'";
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="./css/style.css">
   
-  <title>Lista de Alumnos</title>
+  <title>Modificar Alumnos</title>
 </head>
 <body>
 
@@ -30,8 +31,8 @@
       ?>
       </div>
 
-    <div class="container-table">
-      <div class="table__title">Datos de Alumnos</div>
+    <form class="container-table" action="procesar.php" method="post">
+      <div class="table__title">Panel de edición </div>
       <div class="table__header">Nombre</div>
       <div class="table__header">Apellido</div>
       <div class="table__header">Dirección</div>
@@ -39,16 +40,14 @@
       <div class="table__header">Opcion</div>
       <?php $resultados = mysqli_query($conexion, $alumnos);
       while($row=mysqli_fetch_assoc($resultados)){?>
-      <div class="table__item"><?php echo $row["nombre"]; ?></div>
-      <div class="table__item"><?php echo $row["apellido"]; ?></div>
-      <div class="table__item"><?php echo $row["direccion"]; ?></div>
-      <div class="table__item"><?php echo $row["telefono"]; ?></div>
-      <div class="table__item">
-        <a href="./actualizar.php?id=<?php echo $row["id"]; ?>" class="table__item__link">Editar</a> | 
-        <a href="./eliminar.php?id=<?php echo $row["id"]; ?>" class="table__item__link">Eliminar</a>
-      </div>
+      <input type="hidden" class="table__item" value="<?php echo $row["id"];?>" name="id">
+      <input type="text" class="table__item" value="<?php echo $row["nombre"];?>" name="nombre">
+      <input type="text" class="table__item" value="<?php echo $row["apellido"];?>" name="apellido">
+      <input type="text" class="table__item" value="<?php echo $row["direccion"];?>" name="direccion">
+      <input type="text" class="table__item" value="<?php echo $row["telefono"];?>" name="telefono">
+      <input class="form_submit" type="submit" value="Actualizar" name="" id="">
       <?php } ?>
-    </div>
+    </form>
 
       <div>
     <?php
