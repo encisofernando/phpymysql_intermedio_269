@@ -31,7 +31,7 @@
       ?>
       </div>
 
-    <form class="container-table" action="procesar.php" method="post">
+    <form class="container-table" action="" method="post">
       <div class="table__title">Panel de edición </div>
       <div class="table__header">Nombre</div>
       <div class="table__header">Apellido</div>
@@ -45,10 +45,10 @@
       <input type="text" class="table__item" value="<?php echo $row["apellido"];?>" name="apellido">
       <input type="text" class="table__item" value="<?php echo $row["direccion"];?>" name="direccion">
       <input type="text" class="table__item" value="<?php echo $row["telefono"];?>" name="telefono">
-      <input class="form_submit" type="submit" value="Actualizar" name="" id="">
+      <input class="form_submit" type="submit" value="Actualizar" name="actualizar" id="">
       <?php } ?>
     </form>
-
+        <?php include("procesar.php") ?>
       <div>
     <?php
       include("./footer.php");
@@ -57,6 +57,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>  
+    <script src="./js/script.js"></script>
 </body>
 </html>
 
