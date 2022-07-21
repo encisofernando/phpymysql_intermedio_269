@@ -16,6 +16,7 @@ if (isset($_POST['actualizar'])) {
           ?>
             <h3 class="ok">¡Alumno modificado con exito!</h3>
           <?php
+           header("Location: lista.php");
         } else {
                 ?>
                   <h3 class="bad">¡Ups ha ocurrido un error!</h3>
